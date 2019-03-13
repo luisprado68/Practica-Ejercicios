@@ -1,73 +1,73 @@
 function mostrar()
 {
-    var pais;
     var habitantes;
+    var pais;
     var temperatura;
-    var contadorTemperaturaPar;
-    var paisMenosHabitante;
-    var contadorPaises40;
-    var promedioHabitantes;
-    var temperaturaMinima;
-    var temperaturaMinimaPais;
+    var contador;
     var respuesta;
+    var contadorTemperaturaPar;
+    var menosHabitantes;
+    var paisMenosHabitantes;
+    var contadorPaisSupera40;
+    var promedioHabitantes;
+    var contadorPais;
     var acumuladorHabitantes;
-    var contadorPaises;
+    var temperaturaMinima;
+    var paisTemperaturaMinima;
 
-
+ 
+    
+    
     contadorTemperaturaPar=0;
-    contadorPaises40=0;
-    temperaturaMinima=0;
+    contadorPaisSupera40=0;
+    promedioHabitantes=0;
+    contadorPais=0;
     acumuladorHabitantes=0;
-    contadorPaises=0;
+ 
+
 
     do{
-            pais = prompt("Ingrese un pais");
-            while(isNaN(pais)==false){
-                pais = prompt("Error. Ingrese un pais");
-            }
-            habitantes = parseInt(prompt("Ingrese cantidad habitantes"));
-            while(isNaN(habitantes) || habitantes < 1 || habitantes >7000){
-                habitantes = prompt("Error. Ingrese cantidad habitantes");
-            }
-            temperatura = parseInt(prompt("Ingrese una temperatura"));
-            while(isNaN(temperatura) || temperatura < -50 || temperatura > 50){
-                temperatura = prompt("Error. Ingrese una temperatura");
-            }
+        habitantes = parseInt(prompt("Ingrese habitantes"));
+        while(isNaN(habitantes) || habitantes < 1 || habitantes > 7000){
+        habitantes = parseInt(prompt("Error. Ingrese habitantes"));
+        }
+        pais = prompt("Ingrese pais");
+        while(isNaN(pais)== false){
+        pais = prompt("Error. Ingrese pais");
+        }
+        temperatura = parseInt(prompt("Ingrese temperatura"));
+        while(isNaN(temperatura) || temperatura < -50 || temperatura > 50){
+        temperatura = parseInt(prompt("Error. Ingrese temperatura"));
+        }
+        if(temperatura%2==0){
+            contadorTemperaturaPar++;
+        }
+        if(temperatura >40){
+            contadorPaisSupera40++;
+        }
+        if(habitantes < menosHabitantes || contadorPais==0){
+            menosHabitantes = habitantes;
+            paisMenosHabitantes = pais;
+        }
 
-            if (temperatura %2 ==0){
-                contadorTemperaturaPar++;
-            }
-            if(temperatura > 40){
-                contadorPaises40++;
-            }
-                
-            if(habitantes < paisMenosHabitante || contadorPaises==0){
-                paisMenosHabitante = habitantes;
-                
-                
-            }
-            if(temperatura < temperaturaMinima || contadorPaises ==0){
-                temperaturaMinima = temperatura;
-                temperaturaMinimaPais = pais;
-            }
-            contadorPaises++;
-            acumuladorHabitantes = acumuladorHabitantes + habitantes;
+        if(temperatura < temperaturaMinima || contadorPais==0){
+            temperaturaMinima = temperatura;
+            paisTemperaturaMinima = pais;
+        }
+        
+        contadorPais++;
+        acumuladorHabitantes = acumuladorHabitantes + habitantes;
+        respuesta = confirm("Desea continuar?");
 
-
-
-            respuesta = confirm("Desea continuar?");
     }while(respuesta);
-        paisMenosHabitante = pais;
-        alert(acumuladorHabitantes);
-        promedioHabitantes = acumuladorHabitantes / contadorPaises;
+    
+    promedioHabitantes = acumuladorHabitantes / contadorPais;
 
-        document.write(
-        "La cantidad de temperaturas pares: " + contadorTemperaturaPar+ "<br>"+
-        "El nombre del pais con menos habitantes: " + paisMenosHabitante+ "<br>"+
-        "la cantidad de paises que superan los 40 grados: " + contadorPaises40 + "<br>"+
-        "Promedio de habitantes entre los paises ingresados: " + promedioHabitantes+ "<br>"+
-        "La temperatura mínima ingresada: " + temperaturaMinima+" y el pais es: "+temperaturaMinimaPais+ "<br>");
-
+    document.write("cantidad de temperaturas pares: "+contadorTemperaturaPar+"<br>"
+    +"El nombre del pais con menos habitantes : "+paisMenosHabitantes+"<br>"
+    +" la cantidad de paises que superan los 40 grados: "+contadorPaisSupera40+"<br>"
+    +"el promedio de habitantes entre los paises ingresados	: "+promedioHabitantes+"<br>"
+    +"la temperatura mínima ingresada: "+temperaturaMinima+" y el pais es: "+paisTemperaturaMinima+"<br>");
 
 
 
